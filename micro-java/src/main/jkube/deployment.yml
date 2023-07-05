@@ -27,8 +27,11 @@ spec:
       - env:
         - name: KUBERNETES_NAMESPACE
           valueFrom:
-            fieldRef:
+            fieldRef: 
               fieldPath: metadata.namespace
+          envFrom:
+            - configMapRef:
+                name: configmap-hello
         image: micro-java:1.0
         imagePullPolicy: IfNotPresent
         name: quarkus
